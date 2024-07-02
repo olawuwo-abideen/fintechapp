@@ -1,5 +1,5 @@
 import * as yup from 'yup';
-import { AccountStatus } from '../interfaces/enum/user-enum';
+import { AccountStatus } from '../interfaces/enum/userEnum';
 
 const registerSchema = yup.object({
   firstname: yup.string().lowercase().trim().required(),

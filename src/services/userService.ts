@@ -1,6 +1,6 @@
 import { autoInjectable } from 'tsyringe';
-import { IFindUserQuery, IUser, IUserCreationBody } from '../interfaces/user-interface';
-import UserDataSource from '../datasources/user-datasource';
+import { IFindUserQuery, IUser, IUserCreationBody } from '../interfaces/userInterface';
+import UserDataSource from '../datasource/userDataSource';
 
 @autoInjectable()
 class UserService {
