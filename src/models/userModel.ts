@@ -1,5 +1,5 @@
 import Db from '../database';
-import { IUserModel } from '../interfaces/user-interface';
+import { IUserModel } from '../interfaces/userInterface';
 import { DataTypes } from 'sequelize';
 import { v4 as uuidv4 } from 'uuid';
 
