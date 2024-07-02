@@ -4,7 +4,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 import cors from 'cors';
 import DbInitialize from './src/database/index';
-
+import UserRouter from './src/routers/userRouter';
 
 //create an app
 const app = express();
@@ -26,7 +26,7 @@ app.use((err: TypeError, req: Request, res: Response, next: NextFunction) => {
   } catch (e) {}
 });
 
-
+app.use('/api/user', UserRouter);
 
 
 app.get('/', (req: Request, res: Response) => {
