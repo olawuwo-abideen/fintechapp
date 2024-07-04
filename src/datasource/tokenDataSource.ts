@@ -1,5 +1,5 @@
-import { IFindTokenQuery, IToken, ITokenCreationBody, ITokenDataSource } from '../interfaces/token-interface';
-import TokenModel from '../models/token-model';
+import { IFindTokenQuery, IToken, ITokenCreationBody, ITokenDataSource } from '../interfaces/tokenInterface';
+import TokenModel from '../models/tokenModel';
 
 class TokenDataSource implements ITokenDataSource {
   async create(record: ITokenCreationBody): Promise<IToken> {
