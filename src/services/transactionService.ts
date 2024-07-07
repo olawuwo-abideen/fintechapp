@@ -1,8 +1,8 @@
 import { autoInjectable } from "tsyringe";
-import { TransactionGateWay, TransactionStatus, TransactionTypes } from "../interfaces/enum/transaction-enum";
-import { IFindTransactionQuery, ITransaction, ITransactionCreationBody, ITransactionDataSource } from "../interfaces/transaction-interface";
+import { TransactionGateWay, TransactionStatus, TransactionTypes } from "../interfaces/enum/transactionEnum";
+import { IFindTransactionQuery, ITransaction, ITransactionCreationBody, ITransactionDataSource } from "../interfaces/transactionInterface";
 import { v4 as uuidv4 } from "uuid";
-import TransactionDataSource from "../datasources/transaction-datasource";
+import TransactionDataSource from "../datasource/transactionDataSource";
 
 
 @autoInjectable()
