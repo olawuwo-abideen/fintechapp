@@ -88,35 +88,29 @@ to start using the app.
 - `POST /loans/application` - User apply for loan 
 - `GET /loans/list` - User apply loan list 
 
-## Admin Endpoints
+## Transaction Endpoints
 
-- `GET  /users` - Get all user 
-- `GET  /user/:id` - Get user by id 
-- `POST /user/status` - Get user account status
-- `GET  /accounts` - Get all accounts
-- `GET  /account/:id` - Get user account by id
-- `GET  /transactions` - Get user transaction
-- `GET /loans` - Get user loan
-- `POST /loans/status` - Approve or Decline user loan status
+- `POST  /initiate-deposit` - User deposit
+- `POST  /verify-deposit` - User verify deposit 
+- `POST /transfer` - User make transfer
+- `POST  /withdrawal` - User make withdrawal
+- `GET  /transactions` - Get user transactions
+- `GET /transaction/:id` - Get user transaction by id
 
-## Admin Endpoints
+## User Endpoints
 
-- `GET  /users` - Get all user 
-- `GET  /user/:id` - Get user by id 
-- `POST /user/status` - Get user account status
-- `GET  /accounts` - Get all accounts
-- `GET  /account/:id` - Get user account by id
-- `GET  /transactions` - Get user transaction
-- `GET /loans` - Get user loan
-- `POST /loans/status` - Approve or Decline user loan status
-
+- `POST  /register` - User register 
+- `POST  /login` - User login
+- `POST  /forgot-password` - User forget password
+- `POST  /reset-password` - User update password
+- `GET   /account/:id` - User account by id
 
 
 ## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](https://github.com/olawuwo-abideen fintechapp/issues).
+Feel free to check the [issues page](https://github.com/olawuwo-abideen/fintechapp/issues).
 
 ## Authors
 
