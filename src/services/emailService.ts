@@ -2,7 +2,7 @@ import nodemailer from "nodemailer"
 import fs from "fs"
 import path from "path"
 
-const emailTemplate = path.join(`${__dirname}`,'..','templates/email.html');
+const emailTemplate = path.join(`${__dirname}`,'..','template/index.html');
 const template = fs.readFileSync(emailTemplate,'utf8');
 
 class EmailService {

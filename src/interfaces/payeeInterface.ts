@@ -1,7 +1,5 @@
 import { Optional, Model, FindOptions, Transaction } from "sequelize";
 
-
-
 export interface IPayeePaystackDetail {
   accountNumber: string;
   accountName: string;

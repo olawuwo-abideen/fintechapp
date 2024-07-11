@@ -1,6 +1,5 @@
 import { autoInjectable } from "tsyringe";
-import sequelize from "../database";
-import { IFindLoanQuery, ILoan, ILoanCreationBody, ILoanDataSource } from "../interfaces/loanInterface";
+import { IFindLoanQuery, ILoan, ILoanCreationBody } from "../interfaces/loanInterface";
 import { LoanStatus } from "../interfaces/enum/loanEnum"
 import LoanDataSource from "../datasource/loanDataSource";
 

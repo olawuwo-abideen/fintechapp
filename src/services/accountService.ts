@@ -1,5 +1,4 @@
-import { where } from "sequelize";
-import { IFindAccountQuery, IAccount, IAccountCreationBody, IAccountDataSource } from "../interfaces/accountInterface";
+import { IFindAccountQuery, IAccount, IAccountCreationBody } from "../interfaces/accountInterface";
 import { AccountStatus } from "../interfaces/enum/accountEnum";
 import sequelize from "../database";
 import { autoInjectable } from "tsyringe";

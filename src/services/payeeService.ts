@@ -1,5 +1,4 @@
-import { where } from "sequelize";
-import { IFindPayeeQuery, IPayee, IPayeeCreationBody, IPayeeDataSource } from "../interfaces/payeeInterface";
+import { IFindPayeeQuery, IPayee, IPayeeCreationBody } from "../interfaces/payeeInterface";
 import { autoInjectable } from "tsyringe";
 import PayeeDataSource from "../datasource/payeeDataSource";
 

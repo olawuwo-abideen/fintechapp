@@ -1,4 +1,3 @@
-import { query } from 'express';
 import { IFindUserQuery, IUser, IUserCreationBody, IUserDataSource } from '../interfaces/userInterface';
 import UserModel from '../models/userModel';
 

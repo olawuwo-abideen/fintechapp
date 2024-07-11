@@ -5,8 +5,8 @@ export interface IAccount {
   userId: string;
   accountNumber: string;
   balance: number;
-  type: Date;  // SAVING_ACCOUNT , CURRENT_ACCOUNT , COPERATE (mostly the type of account determins the withdraw amount , lower or hight transaction fee )
-  status: string; //ACTIVE , DORMANT , FROZEN , UNDER_REVIEW
+  type: Date;  
+  status: string;  
   createdAt: Date;
   updatedAt: Date;
 }

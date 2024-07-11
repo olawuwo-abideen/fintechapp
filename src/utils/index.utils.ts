@@ -1,5 +1,5 @@
 import { Response } from 'express';
-import { createLogger , format , info, transport, transports } from 'winston';
+import { createLogger , format, transports } from 'winston';
 import { BANKS } from '../interfaces/enum/payeeEnum';
 
 const printRed = (text: string) => {

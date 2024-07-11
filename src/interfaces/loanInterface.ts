@@ -6,7 +6,7 @@ export interface ILoan {
   accountId: string;
   amount: number;
   interest: number;
-  status: string; // PENDING , ACTIVE , DENIED 
+  status: string;
   createdAt: Date;
   updatedAt: Date;
 }
