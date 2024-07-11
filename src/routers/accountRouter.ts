@@ -16,12 +16,12 @@ const createAccountRoute = () => {
   });
 
 
-  router.get('/account-list', Auth(), (req: Request, res: Response) => {
+  router.get('/accounts', Auth(), (req: Request, res: Response) => {
     return accountController.getAllUserAccounts(req, res);
   });
  
 
-  router.get('/:id', Auth(), (req: Request, res: Response) => {
+  router.get('account/:id', Auth(), (req: Request, res: Response) => {
     return accountController.getUserAccount(req, res);
   });
 
@@ -34,7 +34,7 @@ const createAccountRoute = () => {
     return accountController.getUserPayee(req, res);
   });
 
-  router.post("/apply-for-loan", validator(ValidationSchema.loanApplication), Auth(), (req: Request, res: Response) => {
+  router.post("/loan-appilcation", validator(ValidationSchema.loanApplication), Auth(), (req: Request, res: Response) => {
     return accountController.applyLoan(req, res);
   });
 

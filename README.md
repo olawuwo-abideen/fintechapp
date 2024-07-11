@@ -2,7 +2,6 @@
 
 A Backend to a banking application, It offers functionalities for both users and admin.
 
-
 ## Built With:
 
 - typescript
@@ -77,7 +76,17 @@ to start using the app.
 - `GET  /account/:id` - Get user account by id
 - `GET  /transactions` - Get user transaction
 - `GET /loans` - Get user loans
-- `POST /loans/status` - User loan status
+- `POST /loans/status` - Approve or Decline User loan status
+
+## Account Endpoints
+
+- `POST  /create-account` - Create user account
+- `GET  /accounts/:id` - Get all accounts
+- `POST /account/:id` - Get  account by id
+- `GET  /payee/list` - Get all payee 
+- `GET  /payee/:id` - Get payee by id 
+- `POST /loans/application` - User apply for loan 
+- `GET /loans/list` - User apply loan list 
 
 ## Admin Endpoints
 
@@ -89,6 +98,18 @@ to start using the app.
 - `GET  /transactions` - Get user transaction
 - `GET /loans` - Get user loan
 - `POST /loans/status` - Approve or Decline user loan status
+
+## Admin Endpoints
+
+- `GET  /users` - Get all user 
+- `GET  /user/:id` - Get user by id 
+- `POST /user/status` - Get user account status
+- `GET  /accounts` - Get all accounts
+- `GET  /account/:id` - Get user account by id
+- `GET  /transactions` - Get user transaction
+- `GET /loans` - Get user loan
+- `POST /loans/status` - Approve or Decline user loan status
+
 
 
 ## 🤝 Contributing
