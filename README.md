@@ -76,6 +76,17 @@ to start using the app.
 - `GET  /accounts` - Get all accounts
 - `GET  /account/:id` - Get user account by id
 - `GET  /transactions` - Get user transaction
+- `GET /loans` - Get user loans
+- `POST /loans/status` - User loan status
+
+## Admin Endpoints
+
+- `GET  /users` - Get all user 
+- `GET  /user/:id` - Get user by id 
+- `POST /user/status` - Get user account status
+- `GET  /accounts` - Get all accounts
+- `GET  /account/:id` - Get user account by id
+- `GET  /transactions` - Get user transaction
 - `GET /loans` - Get user loan
 - `POST /loans/status` - Approve or Decline user loan status
 

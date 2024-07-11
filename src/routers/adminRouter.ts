@@ -21,7 +21,7 @@ const createAdminRoute = () => {
         return userController.getSingleUserById(req, res);
     });
 
-    router.post('/user/set-user-status', validator(ValidationSchema.setAccountStatusSchema), AdminAuth(), (req: Request, res: Response) => {
+    router.post('/user/status', validator(ValidationSchema.setAccountStatusSchema), AdminAuth(), (req: Request, res: Response) => {
         return userController.setAccountStatus(req, res);
     });
 
