@@ -1,5 +1,8 @@
 ## Fintech Application
 
+A Backend to a banking application, It offers functionalities for both users and admin.
+
+
 ## Built With:
 
 - typescript
