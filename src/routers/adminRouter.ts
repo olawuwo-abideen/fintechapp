@@ -43,7 +43,7 @@ const createAdminRoute = () => {
     });
 
 
-    router.post('/loans/approve-decline-loan', validator(AccountValidationSchema.approveOrDeclineLoanSchema), AdminAuth(), (req: Request, res: Response) => {
+    router.post('/loans/status', validator(AccountValidationSchema.approveOrDeclineLoanSchema), AdminAuth(), (req: Request, res: Response) => {
         return accountController.approveOrDeclineLoanByAdmin(req, res);
     });
 
