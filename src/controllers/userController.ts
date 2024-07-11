@@ -23,11 +23,7 @@ class UserController {
     this.tokenService = _tokenService;
   }
 
-  //-- structure the data
-  // -- hash the password
-  // -- create user
-  // -- generate a token for verification
-  // -- sending the welcome/verification email
+
   async register(req: Request, res: Response) {
     try {
       const params = { ...req.body };

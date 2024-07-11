@@ -3,10 +3,12 @@ import express, { Request, Response, Express, NextFunction } from 'express';
 import dotenv from 'dotenv';
 dotenv.config();
 import cors from 'cors';
-import DbInitialize from './src/database/index';
+import DbInitialize from './src/database/init';
 import UserRouter from './src/routers/userRouter';
+import AccountRouter from './src/routers/accountRouter';
+import TransactionRouter from './src/routers/transactionRouter';
+import AdminRouter from "./src/routers/adminRouter";
 
-//create an app
 const app = express();
 
 app.use(
@@ -27,7 +29,9 @@ app.use((err: TypeError, req: Request, res: Response, next: NextFunction) => {
 });
 
 app.use('/api/user', UserRouter);
-
+app.use('/api/account', AccountRouter);
+app.use('/api/transaction', TransactionRouter);
+app.use('/api/admin', AdminRouter);
 
 app.get('/', (req: Request, res: Response) => {
   res.send(`Welcome to ${process.env.APPNAME}`);
@@ -45,5 +49,4 @@ const Boostrap = async function () {
     console.error('Unable to connect to the database:', error);
   }
 };
-
 Boostrap();
