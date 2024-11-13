@@ -16,7 +16,7 @@ const DbInitialize = async () => {
     PayeeModel.sync({alter:false})
     LoanModel.sync({alter:false,hooks:true})
   } catch (error) {
-    console.log('Unable to connect to our databse ', error);
+    console.log('Unable to connect to our database ', error);
   }
 };
 

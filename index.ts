@@ -8,9 +8,15 @@ import UserRouter from './src/routers/userRouter';
 import AccountRouter from './src/routers/accountRouter';
 import TransactionRouter from './src/routers/transactionRouter';
 import AdminRouter from "./src/routers/adminRouter";
+import helmet from 'helmet';
+import compression from 'compression';
+import cookieParser from 'cookie-parser';
 
 const app = express();
 
+app.use(cookieParser());
+app.use(helmet());
+app.use(compression());
 app.use(
   cors({
     origin: '*',
@@ -37,7 +43,7 @@ app.get('/', (req: Request, res: Response) => {
   res.send(`Welcome to ${process.env.APPNAME}`);
 });
 
-const PORT = process.env.PORT || 4300;
+const PORT = process.env.PORT || 3000;
 
 const Boostrap = async function () {
   try {

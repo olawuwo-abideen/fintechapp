@@ -43,6 +43,7 @@ Open a terminal window session, or the equivalent on your machine, and enter the
 Node modules needed to run the app:
 
 ```sh
+
 npm install
 ```
 
