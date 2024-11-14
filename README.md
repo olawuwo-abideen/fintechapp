@@ -39,15 +39,32 @@ cd fintechapp.git
 
 ## Run the app in development mode
 
-Open a terminal window session, or the equivalent on your machine, and enter the following command to install all the
-Node modules needed to run the app:
+Open a terminal window session, or the equivalent on your machine, and enter the following command to install all the Node modules needed to run the app:
 
 ```sh
 
 npm install
 ```
 
-After doing an `npm install` enter the following `npm start` command:
+After doing an `npm install` create dotenv files with the following params
+
+```
+PORT = 3000
+APPNAME= appname
+DB_USERNAME=username
+DB_PASSWORD=password
+DB_NAME=name
+DB_HOST=localhost
+DB_DIALECT=mysql
+DB_PORT=3306
+DB_ALTER=false
+JWT_KEY=secret
+MAIL_USER=mail user
+MAIL_PASSWORD=mail password
+PAYSTACK_SECRET_KEY= secretkey
+PAYSTACK_CALLBACK_URL= callback url
+```
+and 
 
 ```sh
 
