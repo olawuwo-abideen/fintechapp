@@ -9,7 +9,6 @@ const router = express.Router();
 const userController =  container.resolve(UserController);
 
 const createUserRoute = () => {
-
   router.post('/register', validator(ValidationSchema.registerSchema), (req: Request, res: Response) => {
     return userController.register(req, res);
   });

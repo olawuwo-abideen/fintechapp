@@ -11,8 +11,29 @@ import AdminRouter from "./src/routers/adminRouter";
 import helmet from 'helmet';
 import compression from 'compression';
 import cookieParser from 'cookie-parser';
+import bodyParser from "body-parser";
+import swaggerJSDoc from "swagger-jsdoc";
+import swaggerUi from "swagger-ui-express";
 
 const app = express();
+
+const options = {
+  definition: {
+    openapi: "3.0.1",
+    info: {
+      title: "REST API for Swagger Documentation",
+      version: "1.0.0",
+    },
+    schemes: ["http", "https"],
+    servers: [{ url: "http://localhost:3000/" }],
+  },
+  apis: [
+    './src/routers/*.ts','./src/controllers/*.ts'
+  ],
+};
+const swaggerSpec = swaggerJSDoc(options);
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+app.use(bodyParser.json());
 
 app.use(cookieParser());
 app.use(helmet());
