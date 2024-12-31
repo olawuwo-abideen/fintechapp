@@ -17,22 +17,22 @@ import swaggerUi from "swagger-ui-express";
 
 const app = express();
 
-const options = {
-  definition: {
-    openapi: "3.0.1",
-    info: {
-      title: "REST API for Swagger Documentation",
-      version: "1.0.0",
-    },
-    schemes: ["http", "https"],
-    servers: [{ url: "http://localhost:3000/" }],
-  },
-  apis: [
-    './src/routers/*.ts','./src/controllers/*.ts'
-  ],
-};
-const swaggerSpec = swaggerJSDoc(options);
-app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+// const options = {
+//   definition: {
+//     openapi: "3.0.1",
+//     info: {
+//       title: "REST API for Swagger Documentation",
+//       version: "1.0.0",
+//     },
+//     schemes: ["http", "https"],
+//     servers: [{ url: "http://localhost:3000/" }],
+//   },
+//   apis: [
+//     './src/routers/*.ts','./src/controllers/*.ts'
+//   ],
+// };
+// const swaggerSpec = swaggerJSDoc(options);
+// app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 app.use(bodyParser.json());
 
 app.use(cookieParser());
@@ -55,10 +55,10 @@ app.use((err: TypeError, req: Request, res: Response, next: NextFunction) => {
   } catch (e) {}
 });
 
-app.use('/api/user', UserRouter);
-app.use('/api/account', AccountRouter);
-app.use('/api/transaction', TransactionRouter);
-app.use('/api/admin', AdminRouter);
+app.use('/user', UserRouter);
+app.use('/account', AccountRouter);
+app.use('/transaction', TransactionRouter);
+app.use('/admin', AdminRouter);
 
 app.get('/', (req: Request, res: Response) => {
   res.send(`Welcome to ${process.env.APPNAME}`);
