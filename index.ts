@@ -17,22 +17,22 @@ import swaggerUi from "swagger-ui-express";
 
 const app = express();
 
-// const options = {
-//   definition: {
-//     openapi: "3.0.1",
-//     info: {
-//       title: "REST API for Swagger Documentation",
-//       version: "1.0.0",
-//     },
-//     schemes: ["http", "https"],
-//     servers: [{ url: "http://localhost:3000/" }],
-//   },
-//   apis: [
-//     './src/routers/*.ts','./src/controllers/*.ts'
-//   ],
-// };
-// const swaggerSpec = swaggerJSDoc(options);
-// app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+const options = {
+  definition: {
+    openapi: "3.0.1",
+    info: {
+      title: "REST API for Swagger Documentation",
+      version: "1.0.0",
+      description: "A backend to banking app",
+    },
+    servers: [{ url: "http://localhost:3000/" }],
+  },
+  apis: [
+    './routers/*.ts'
+  ],
+};
+const specs = swaggerJSDoc(options);
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(specs));
 app.use(bodyParser.json());
 
 app.use(cookieParser());
@@ -77,3 +77,5 @@ const Boostrap = async function () {
   }
 };
 Boostrap();
+
+

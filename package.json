@@ -1,7 +1,7 @@
 {
   "name": "fintechapp",
   "version": "1.0.0",
-  "description": "Backend to fintech app",
+  "description": "Backend a banking app",
   "main": "index.ts",
   "scripts": {
     "start": "nodemon index.ts"
