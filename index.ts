@@ -64,4 +64,4 @@ const Boostrap = async function () {
 };
 Boostrap();
 
-
+export default app;
