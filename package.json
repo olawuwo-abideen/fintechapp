@@ -5,10 +5,8 @@
   "main": "index.ts",
   "scripts": {
     "start": "node index.ts",
-    "build": "npm install && npm run build",
+    "build": "npm install && npm install mysql2",
     "postinstall": "npm install mysql2"
-    
-
   },
   "author": "",
   "license": "ISC",

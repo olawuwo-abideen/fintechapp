@@ -1,4 +1,5 @@
 import { Sequelize, Dialect } from 'sequelize';
+import mysql2 from 'mysql2'; 
 
 const database = process.env.DB_NAME as string;
 const username = process.env.DB_USERNAME as string;
@@ -12,7 +13,7 @@ const sequelize = new Sequelize(database, username, password, {
   dialect,
   port,
   logging: false,
+  dialectModule: mysql2,
 });
-
 
 export default sequelize;
