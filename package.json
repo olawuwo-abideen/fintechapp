@@ -4,7 +4,7 @@
   "description": "Backend a banking app",
   "main": "index.ts",
   "scripts": {
-    "start": "nodemon index.ts",
+    "start": "node index.ts",
     "build": "npm install && npm run build",
     "postinstall": "npm install mysql2"
     
