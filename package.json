@@ -4,7 +4,11 @@
   "description": "Backend a banking app",
   "main": "index.ts",
   "scripts": {
-    "start": "nodemon index.ts"
+    "start": "nodemon index.ts",
+    "build": "npm install && npm run build",
+    "postinstall": "npm install mysql2"
+    
+
   },
   "author": "",
   "license": "ISC",
