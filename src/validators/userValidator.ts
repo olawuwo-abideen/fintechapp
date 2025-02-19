@@ -15,7 +15,7 @@ const loginSchema = yup.object({
 
 const forgotPasswordSchema = yup.object({
   email: yup.string().email().lowercase().trim().required(),
-});
+});   
 
 const resetPasswordSchema = yup.object({
   code: yup.string().trim().required(),

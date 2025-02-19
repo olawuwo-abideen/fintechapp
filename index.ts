@@ -12,27 +12,13 @@ import helmet from 'helmet';
 import compression from 'compression';
 import cookieParser from 'cookie-parser';
 import bodyParser from "body-parser";
-import swaggerJSDoc from "swagger-jsdoc";
-import swaggerUi from "swagger-ui-express";
+import { swaggerDocs } from "./src/utils/swagger";
+
 
 const app = express();
 
-const options = {
-  definition: {
-    openapi: "3.0.1",
-    info: {
-      title: "REST API for Swagger Documentation",
-      version: "1.0.0",
-      description: "A backend to banking app",
-    },
-    servers: [{ url: "http://localhost:3000/" }],
-  },
-  apis: [
-    './routers/*.ts'
-  ],
-};
-const specs = swaggerJSDoc(options);
-app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(specs));
+swaggerDocs(app);
+   
 app.use(bodyParser.json());
 
 app.use(cookieParser());
@@ -55,10 +41,10 @@ app.use((err: TypeError, req: Request, res: Response, next: NextFunction) => {
   } catch (e) {}
 });
 
-app.use('/user', UserRouter);
-app.use('/account', AccountRouter);
-app.use('/transaction', TransactionRouter);
-app.use('/admin', AdminRouter);
+app.use('/', UserRouter);
+app.use('/', AccountRouter);
+app.use('/', TransactionRouter);
+app.use('/', AdminRouter);
 
 app.get('/', (req: Request, res: Response) => {
   res.send(`Welcome to ${process.env.APPNAME}`);

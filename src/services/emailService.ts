@@ -30,7 +30,9 @@ class EmailService {
     html = this.replaceTemplateConstant(html , '#MESSAGE#' , message);
     html = this.replaceTemplateConstant(html , '#SUPPORT_MAIL#' , supportMail);
     const transport = nodemailer.createTransport({
-      service: "gmail",
+      host: "smtp.ethereal.email",
+      // service: "gmail",
+      port: 587, 
       auth: {
         user: process.env.MAIL_USER,
         pass: process.env.MAIL_PASSWORD,

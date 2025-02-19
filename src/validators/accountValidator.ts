@@ -13,7 +13,7 @@ const loanApplication = yup.object({
 
 const approveOrDeclineLoanSchema = yup.object({
   loanId: yup.string().trim().required(),
-  status: yup.string().required().oneOf(Object.values(["ACTIVE","DECLINED"])),
+  status: yup.string().required().oneOf(Object.values(["APPROVED","DECLINED"])),
 });
 
 
