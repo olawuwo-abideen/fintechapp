@@ -78,7 +78,7 @@ const options = {
     ],
   },   
 
-  apis: [path.join(__dirname, "./src/routers/*.ts")],
+  apis: [path.join(__dirname, "./routers/*.ts")],
   
   // apis: ["./src/routers/*.ts"]
   // This is to call all the file
@@ -93,9 +93,9 @@ const specs = swaggerJsDoc(options);
 // // });
 
 
-app.get("/", (req: Request, res: Response) => {
-  res.redirect(301, "/api-docs/");
-});
+// app.get("/", (req: Request, res: Response) => {
+//   res.redirect(301, "/api-docs/");
+// });
 
 app.use(
   "/api-docs",
