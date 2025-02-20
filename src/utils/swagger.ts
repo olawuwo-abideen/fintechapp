@@ -2,6 +2,9 @@ import swaggerJsDoc from 'swagger-jsdoc';
 import swaggerUi from 'swagger-ui-express';
 import { Express } from 'express';
 
+const CSS_URL =
+  "https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.1.0/swagger-ui.min.css";
+
 const options: swaggerJsDoc.Options = {
   definition: {
     openapi: '3.0.0',
@@ -13,7 +16,7 @@ const options: swaggerJsDoc.Options = {
     servers: [
       {
         url: 'http://localhost:3000',
-        description: 'Local server',
+        description: 'Fintech API documentation',
       },
     ],
     components: {
@@ -30,6 +33,9 @@ const options: swaggerJsDoc.Options = {
   apis: ['./src/routers/*.ts']
 };const swaggerSpec = swaggerJsDoc(options);
 
+
+
+
 export const swaggerDocs = (app: Express): void => {
   app.use(
     "/api-docs",
@@ -41,7 +47,7 @@ export const swaggerDocs = (app: Express): void => {
       customfavIcon: "https://avatars.githubusercontent.com/u/6936373?s=200&v=4",
       customSiteTitle: "Fintech API Docs",
       customCssUrl:
-        "https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.15.5/swagger-ui.min.css",
+        "https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.1.0/swagger-ui.min.css",
     })
   );
 };

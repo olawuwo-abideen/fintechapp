@@ -8,7 +8,7 @@ import UserRouter from './src/routers/userRouter';
 import AccountRouter from './src/routers/accountRouter';
 import TransactionRouter from './src/routers/transactionRouter';
 import AdminRouter from "./src/routers/adminRouter";
-import helmet from 'helmet';
+// import helmet from 'helmet';
 import compression from 'compression';
 import cookieParser from 'cookie-parser';
 import bodyParser from "body-parser";
@@ -50,7 +50,7 @@ app.get("/", (req: Request, res: Response) => {
   res.redirect(301, "/api-docs/");
 });
 
-app.use(helmet());
+// app.use(helmet());
 
 const PORT = process.env.PORT || 3000;
 
