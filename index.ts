@@ -23,7 +23,7 @@ const routersPath = path.join(__dirname, "./src/routers"); // ✅ Get full path
 console.log("Resolved Routers Path:", routersPath);
 
 if (fs.existsSync(routersPath)) {
-  const files = fs.readdirSync(routersPath).filter(file => file.endsWith(".js")); // ✅ Get only .js files
+  const files = fs.readdirSync(routersPath).filter(file => file.endsWith(".ts")); // ✅ Get only .js files
   console.log("Swagger Detected Files:", files);
 } else {
   console.error("Routers directory not found!");
@@ -77,8 +77,8 @@ const options = {
       },
     ],
   },   
-  apis: ["./dist/routers/*.js"], 
-  // apis: [path.join(__dirname, "routers/*.js")],
+
+  apis: [path.join(__dirname, "./src/routers/*.ts")],
   
   // apis: ["./src/routers/*.ts"]
   // This is to call all the file
