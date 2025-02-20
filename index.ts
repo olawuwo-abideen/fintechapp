@@ -78,7 +78,7 @@ const options = {
     ],
   },   
 
-  apis: [path.join(__dirname, "./src/routers/*.ts")],
+  apis: [path.join(__dirname, "routers/*.ts")],
   
   // apis: ["./src/routers/*.ts"]
   // This is to call all the file
