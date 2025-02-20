@@ -1,20 +1,44 @@
 import { Response } from 'express';
 import { createLogger , format, transports } from 'winston';
 import { BANKS } from '../interfaces/enum/payeeEnum';
+import fs from 'fs';
+import path from 'path';
 
 const printRed = (text: string) => {
   console.log('\x1b[31m%s\x1b[0m', `${text} \n`);
 };
 
+// const logger = createLogger({
+//   transports :[
+//     new transports.File({
+//       filename:'./logs/index.log',
+//       level:'error',
+//       format:format.combine(format.timestamp({format:'YYYY-MM-DD HH:mm:ss'}),format.printf((info)=>`${info.timestamp} ${info.level} : ${info.message} `))
+//     })
+//   ]
+// })
+
+
+
+const logDir = path.resolve('./logs'); // Convert to absolute path
+
+// Ensure logs directory exists
+if (!fs.existsSync(logDir)) {
+  fs.mkdirSync(logDir, { recursive: true });
+}
+
 const logger = createLogger({
-  transports :[
+  transports: [
     new transports.File({
-      filename:'./logs/index.log',
-      level:'error',
-      format:format.combine(format.timestamp({format:'YYYY-MM-DD HH:mm:ss'}),format.printf((info)=>`${info.timestamp} ${info.level} : ${info.message} `))
+      filename: path.join(logDir, 'index.log'),
+      level: 'error',
+      format: format.combine(
+        format.timestamp({ format: 'YYYY-MM-DD HH:mm:ss' }),
+        format.printf((info) => `${info.timestamp} ${info.level} : ${info.message} `)
+      )
     })
   ]
-})
+});
 
 const  escapeHtml = (html:string) => {
   return html.replace(/[&<>"']/g, '');
