@@ -1,32 +1,16 @@
+
 {
-    "version": 2,
-    "builds": [
-      {
-        "src": "index.ts",
-        "use": "@vercel/node"
-      }
-    ],
-    
-    "routes": [
-      {
-      "src": "/(.*)",
-      "dest": "/",
-        "methods": [
-          "GET",
-          "POST",
-          "PUT",
-          "PATCH",
-          "DELETE",
-          "OPTIONS"
-        ]
-      }
-    ],
-  
-    "env": {
-      "NODE_ENV": "development",
-      "PORT": "3000"
+  "version": 2,
+  "builds": [
+    {
+      "src": "./index.ts",
+      "use": "@vercel/node"
     }
-  }
-
-
-  
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/"
+    }
+  ]
+}
