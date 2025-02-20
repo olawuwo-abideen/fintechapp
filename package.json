@@ -44,7 +44,7 @@
     "reflect-metadata": "^0.2.2",
     "sequelize": "^6.37.3",
     "swagger-jsdoc": "^6.2.8",
-    "swagger-ui-express": "^5.0.1",
+    "swagger-ui-express": "^4.6.2",
     "tsyringe": "^4.8.0",
     "uuid": "^10.0.0",
     "winston": "^3.13.0",
