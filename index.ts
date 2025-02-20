@@ -68,8 +68,9 @@ const options = {
       },
     ],
   },   
+  apis: ["./src/routers/*.ts"]
   // This is to call all the file
-  apis: ["src/**/*.ts"]
+  // apis: ["src/**/*.ts"]
 };
 
 const specs = swaggerJsDoc(options);
@@ -105,6 +106,4 @@ Boostrap();
 
 
 
-// export default app;
-
-// app.listen(PORT, () => console.log(`Server runs on port ${PORT}`));
+export default app;
