@@ -59,6 +59,7 @@ const options = {
       title: "Fintech API",
       version: "1.0.0",
       description: "A backend to a Fintech API",
+
     },
     servers: [
       {
@@ -66,8 +67,7 @@ const options = {
         description: "My API Documentation",
       },
     ],
-  },
-
+  },   
   // This is to call all the file
   apis: ["src/**/*.ts"]
 };
@@ -80,7 +80,9 @@ const specs = swaggerJsDoc(options);
 // // });
 
 
-
+// app.get("/", (req: Request, res: Response) => {
+//   res.redirect(301, "/api-docs/");
+// });
 
 app.use(
   "/api-docs",
@@ -88,9 +90,6 @@ app.use(
   swaggerUI.setup(specs, { customCssUrl: CSS_URL })
 );
 
-app.get("/", (req: Request, res: Response) => {
-  res.redirect(301, "/api-docs/");
-});
 
 const Boostrap = async function () {
   try {
@@ -106,6 +105,6 @@ Boostrap();
 
 
 
-export default app;
+// export default app;
 
-app.listen(PORT, () => console.log(`Server runs on port ${PORT}`));
+// app.listen(PORT, () => console.log(`Server runs on port ${PORT}`));
