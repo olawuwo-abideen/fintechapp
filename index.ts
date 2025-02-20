@@ -1,3 +1,5 @@
+import path from "path";
+import fs from "fs";
 import "reflect-metadata"
 import express, { Request, Response,NextFunction } from 'express';
 import dotenv from 'dotenv';
@@ -17,8 +19,15 @@ import bodyParser from "body-parser";
 import swaggerUI from "swagger-ui-express";
 import swaggerJsDoc from "swagger-jsdoc";
 
+const routersPath = path.join(__dirname, "./src/routers"); // ✅ Get full path
+console.log("Resolved Routers Path:", routersPath);
 
-
+if (fs.existsSync(routersPath)) {
+  const files = fs.readdirSync(routersPath).filter(file => file.endsWith(".ts")); // ✅ Get only .js files
+  console.log("Swagger Detected Files:", files);
+} else {
+  console.error("Routers directory not found!");
+}
 
 // CDN CSS
 const CSS_URL =
@@ -68,7 +77,10 @@ const options = {
       },
     ],
   },   
-  apis: ["./src/routers/*.ts"]
+
+  apis: [path.join(__dirname, "./src/routers/*.ts")],
+  
+  // apis: ["./src/routers/*.ts"]
   // This is to call all the file
   // apis: ["src/**/*.ts"]
 };
@@ -81,9 +93,9 @@ const specs = swaggerJsDoc(options);
 // // });
 
 
-// app.get("/", (req: Request, res: Response) => {
-//   res.redirect(301, "/api-docs/");
-// });
+app.get("/", (req: Request, res: Response) => {
+  res.redirect(301, "/api-docs/");
+});
 
 app.use(
   "/api-docs",
