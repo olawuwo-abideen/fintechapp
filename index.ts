@@ -142,7 +142,7 @@ const options = {
     ],
   },
   // This is to call all the file
-  apis: ["src/**/*.ts"],
+  apis: ["./src/routers/*.ts"]
 };
 
 const specs = swaggerJsDoc(options);
