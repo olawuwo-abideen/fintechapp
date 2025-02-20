@@ -1,40 +1,93 @@
-import swaggerJsDoc from 'swagger-jsdoc';
-import swaggerUi from 'swagger-ui-express';
-import { Express } from 'express';
+// import swaggerJsDoc from 'swagger-jsdoc';
+// import swaggerUi from 'swagger-ui-express';
+// import { Express } from 'express';
 
-const CSS_URL =
-  "https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.1.0/swagger-ui.min.css";
+// const CSS_URL =
+//   "https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.1.0/swagger-ui.min.css";
+
+// const options: swaggerJsDoc.Options = {
+//   definition: {
+//     openapi: '3.0.0',
+//     info: {
+//       title: 'Fintech API',
+//       version: '1.0.0',
+//       description: 'Backend to a Fintech API documentation',
+//     },
+//     servers: [
+//       {
+//         url: 'http://localhost:3000',
+//         description: 'Fintech API documentation',
+//       },
+//     ],
+//     components: {
+//       securitySchemes: {
+//         BearerAuth: {
+//           type: 'http',
+//           scheme: 'bearer',
+//           bearerFormat: 'JWT',
+//         },
+//       },
+//     },    
+//     // security: [{ BearerAuth: [] }],
+//   },
+//   apis: ['./src/routers/*.ts']
+// };const swaggerSpec = swaggerJsDoc(options);
+
+
+
+
+// export const swaggerDocs = (app: Express): void => {
+//   app.use(
+//     "/api-docs",
+//     swaggerUi.serve,
+//     swaggerUi.setup(swaggerSpec, undefined, {
+//       swaggerOptions: {
+//         persistAuthorization: true,
+//       },
+//       customfavIcon: "https://avatars.githubusercontent.com/u/6936373?s=200&v=4",
+//       customSiteTitle: "Fintech API Docs",
+//       customCssUrl:
+//         "https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.1.0/swagger-ui.min.css",
+//     })
+//   );
+// };
+
+
+
+
+
+import swaggerJsDoc from "swagger-jsdoc";
+import swaggerUi from "swagger-ui-express";
+import { Express } from "express";
 
 const options: swaggerJsDoc.Options = {
   definition: {
-    openapi: '3.0.0',
+    openapi: "3.0.0",
     info: {
-      title: 'Fintech API',
-      version: '1.0.0',
-      description: 'Backend to a Fintech API documentation',
+      title: "Fintech API",
+      version: "1.0.0",
+      description: "Backend to a Fintech API documentation",
     },
     servers: [
       {
-        url: 'http://localhost:3000',
-        description: 'Fintech API documentation',
+        url: "http://localhost:3000",
+        description: "Local server",
       },
     ],
     components: {
       securitySchemes: {
         BearerAuth: {
-          type: 'http',
-          scheme: 'bearer',
-          bearerFormat: 'JWT',
+          type: "http",
+          scheme: "bearer",
+          bearerFormat: "JWT",
         },
       },
-    },    
-    // security: [{ BearerAuth: [] }],
+    },
   },
-  apis: ['./src/routers/*.ts']
-};const swaggerSpec = swaggerJsDoc(options);
+  apis: ["./src/routers/*.ts"],
+};
 
-
-
+const swaggerSpec = swaggerJsDoc(options);
 
 export const swaggerDocs = (app: Express): void => {
   app.use(
@@ -44,17 +97,12 @@ export const swaggerDocs = (app: Express): void => {
       swaggerOptions: {
         persistAuthorization: true,
       },
-      customfavIcon: "https://avatars.githubusercontent.com/u/6936373?s=200&v=4",
-      customSiteTitle: "Fintech API Docs",
+      customfavIcon:
+        "https://avatars.githubusercontent.com/u/6936373?s=200&v=4",
       customCssUrl:
-        "https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.1.0/swagger-ui.min.css",
+        "https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.15.5/swagger-ui.min.css",
     })
   );
 };
-
-
-
-
-
 
 

@@ -46,6 +46,11 @@ app.use('/', AccountRouter);
 app.use('/', TransactionRouter);
 app.use('/', AdminRouter);
 
+
+// app.get('/', (req: Request, res: Response) => {
+//   res.send(`Welcome to ${process.env.APPNAME}`);
+// });
+
 app.get("/", (req: Request, res: Response) => {
   res.redirect(301, "/api-docs/");
 });
