@@ -24,10 +24,12 @@ app.use(bodyParser.json());
 app.use(cookieParser());
 
 app.use(compression());
-app.use(
+ app.use(
   cors({
     origin: '*',
-  })
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    credentials: true,
+ })
 );
 
 app.use(express.urlencoded({ extended: true }));

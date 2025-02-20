@@ -60,6 +60,12 @@ import swaggerJsDoc from "swagger-jsdoc";
 import swaggerUi from "swagger-ui-express";
 import { Express } from "express";
 
+
+const serverUrl =
+  process.env.NODE_ENV === "production"
+    ? "https://fintechapp-ff7dubjot-olawuwo-projects.vercel.app"
+    : "http://localhost:3000";
+
 const options: swaggerJsDoc.Options = {
   definition: {
     openapi: "3.0.0",
@@ -70,8 +76,8 @@ const options: swaggerJsDoc.Options = {
     },
     servers: [
       {
-        url: "http://localhost:3000",
-        description: "Local server",
+        url: serverUrl,
+        description: process.env.NODE_ENV === "production" ? "Production Server" : "Local Server",
       },
     ],
     components: {
