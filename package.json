@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "Backend a banking app",
   "main": "index.ts",
-  "type": "module",
   "scripts": {
     "start": "nodemon index.ts",
     "build": "npm install && npm install mysql2",
