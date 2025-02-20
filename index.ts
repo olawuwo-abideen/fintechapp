@@ -22,7 +22,7 @@ swaggerDocs(app);
 app.use(bodyParser.json());
 
 app.use(cookieParser());
-app.use(helmet());
+
 app.use(compression());
 app.use(
   cors({
@@ -46,9 +46,11 @@ app.use('/', AccountRouter);
 app.use('/', TransactionRouter);
 app.use('/', AdminRouter);
 
-app.get('/', (req: Request, res: Response) => {
-  res.redirect("/api-docs");
+app.get("/", (req: Request, res: Response) => {
+  res.redirect(301, "/api-docs/");
 });
+
+app.use(helmet());
 
 const PORT = process.env.PORT || 3000;
 
