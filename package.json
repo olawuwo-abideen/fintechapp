@@ -9,7 +9,7 @@
   "dev": "nodemon --exec ts-node-dev src/index.js",
   "build": "tsc && cp -r src/template dist/",
   "postinstall": "npm run build"
-}
+}  
 , 
   "author": "",
   "license": "ISC",
