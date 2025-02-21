@@ -33,8 +33,7 @@ const accountController = container.resolve(AccountController);
  *               AccountStatus:
  *                 type: string
  *             example:
- *               AccountType: "SAVING_ACCOUNT"
- *               AccountStatus: "ACTIVE"
+ *               type: "SAVING_ACCOUNT"
  *     responses:
  *       201:
  *         description: Account created successfully

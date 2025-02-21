@@ -1,5 +1,3 @@
-import path from "path";
-import fs from "fs";
 import "reflect-metadata"
 import express, { Request, Response,NextFunction } from 'express';
 import dotenv from 'dotenv';
@@ -18,16 +16,6 @@ import bodyParser from "body-parser";
 
 import swaggerUI from "swagger-ui-express";
 import swaggerJsDoc from "swagger-jsdoc";
-
-const routersPath = path.join(__dirname, "routers");
-console.log("Resolved Routers Path:", routersPath);
-
-if (fs.existsSync(routersPath)) {
-  const files = fs.readdirSync(routersPath).filter(file => file.endsWith(".js"));
-  console.log("Swagger Detected Files:", files);
-} else {
-  console.error("Routers directory not found!");
-}
 
 // CDN CSS
 const CSS_URL =
@@ -74,9 +62,18 @@ const options = {
     servers: [
       {
         url: "https://fintechapp-dnxa.onrender.com/",
-        description: "My API Documentation",
+        description: "My Fintech API Documentation",
       },  
     ],
+    components: {
+      securitySchemes: {
+        BearerAuth: {
+          type: "http",
+          scheme: "bearer",
+          bearerFormat: "JWT",
+        },
+      },
+    },
   },   
   apis: ["./dist/routers/*.js"]
 };
