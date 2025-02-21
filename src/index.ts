@@ -5,11 +5,11 @@ import express, { Request, Response,NextFunction } from 'express';
 import dotenv from 'dotenv';
 dotenv.config();
 import cors from 'cors';
-import DbInitialize from './src/database/init';
-import UserRouter from './src/routers/userRouter';
-import AccountRouter from './src/routers/accountRouter';
-import TransactionRouter from './src/routers/transactionRouter';
-import AdminRouter from "./src/routers/adminRouter";
+import DbInitialize from './database/init';
+import UserRouter from './routers/userRouter';
+import AccountRouter from './routers/accountRouter';
+import TransactionRouter from './routers/transactionRouter';
+import AdminRouter from "./routers/adminRouter";
 // import helmet from 'helmet';
 import compression from 'compression';
 import cookieParser from 'cookie-parser';
@@ -19,11 +19,11 @@ import bodyParser from "body-parser";
 import swaggerUI from "swagger-ui-express";
 import swaggerJsDoc from "swagger-jsdoc";
 
-const routersPath = path.join(__dirname, "./src/routers"); // ✅ Get full path
+const routersPath = path.join(__dirname, "routers");
 console.log("Resolved Routers Path:", routersPath);
 
 if (fs.existsSync(routersPath)) {
-  const files = fs.readdirSync(routersPath).filter(file => file.endsWith(".ts")); // ✅ Get only .js files
+  const files = fs.readdirSync(routersPath).filter(file => file.endsWith(".js"));
   console.log("Swagger Detected Files:", files);
 } else {
   console.error("Routers directory not found!");
@@ -77,17 +77,10 @@ const options = {
       },
     ],
   },   
-  // apis: ["./dist/routers/*.js"], 
-  // apis: [path.join(__dirname, "routers/*.js")],
-  
-  apis: ["./src/routers/*.ts"]
-  // This is to call all the file
-  // apis: ["src/**/*.ts"]
+  apis: ["./dist/routers/*.js"]
 };
 
 const specs = swaggerJsDoc(options);
-// app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(specs));
-
 
 app.get("/", (req: Request, res: Response) => {
   res.redirect(301, "/api-docs/");
