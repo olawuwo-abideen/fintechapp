@@ -60,7 +60,7 @@ app.use('/accounts', AccountRouter);
 app.use('/transactions', TransactionRouter);
 app.use('/admin', AdminRouter);
 
-// app.use("/posts", postRouter);
+
 
 const options = {
   definition: {
@@ -90,9 +90,13 @@ app.get("/", (req: Request, res: Response) => {
 app.use(
   "/api-docs",
   swaggerUI.serve,
-  swaggerUI.setup(specs, { customCssUrl: CSS_URL })
+  swaggerUI.setup(specs, {
+    customCssUrl: CSS_URL,
+    swaggerOptions: {
+      persistAuthorization: true, 
+    },
+  })
 );
-
 
 const Boostrap = async function () {
   try {
