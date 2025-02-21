@@ -55,11 +55,12 @@ app.use((err: TypeError, req: Request, res: Response, next: NextFunction) => {
   } catch (e) {}
 });
 
-app.use('/', UserRouter);
-app.use('/', AccountRouter);
-app.use('/', TransactionRouter);
-app.use('/', AdminRouter);
+app.use('/users', UserRouter);
+app.use('/accounts', AccountRouter);
+app.use('/transactions', TransactionRouter);
+app.use('/admin', AdminRouter);
 
+// app.use("/posts", postRouter);
 
 const options = {
   definition: {
@@ -72,9 +73,9 @@ const options = {
     },
     servers: [
       {
-        url: "https://nodejs-swagger-api.vercel.app/",
+        url: "https://fintechapp-dnxa.onrender.com/",
         description: "My API Documentation",
-      },
+      },  
     ],
   },   
   apis: ["./dist/routers/*.js"]
@@ -83,7 +84,7 @@ const options = {
 const specs = swaggerJsDoc(options);
 
 app.get("/", (req: Request, res: Response) => {
-  res.redirect(301, "/api-docs/");
+  res.redirect(301, "");
 });
 
 app.use(

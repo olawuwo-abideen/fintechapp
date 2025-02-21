@@ -41,7 +41,7 @@ const transactionController = container.resolve(TransactionController);
  *       400:
  *         description: Bad request
  */
-router.post('/transactions/initiate-deposit', validator(ValidationSchema.initiatePaystackDeposit), Auth(), (req: Request, res: Response) =>
+router.post('/initiate-deposit', validator(ValidationSchema.initiatePaystackDeposit), Auth(), (req: Request, res: Response) =>
   transactionController.initiatePaystackDeposit(req, res)
 );
 
@@ -70,7 +70,7 @@ router.post('/transactions/initiate-deposit', validator(ValidationSchema.initiat
  *       400:
  *         description: Invalid transaction reference
  */
-router.post('/transactions/verify-deposit', validator(ValidationSchema.verifyPaystackDeposit), Auth(), (req: Request, res: Response) =>
+router.post('/verify-deposit', validator(ValidationSchema.verifyPaystackDeposit), Auth(), (req: Request, res: Response) =>
   transactionController.verifyPaystackDeposit(req, res)
 );
 
@@ -105,7 +105,7 @@ router.post('/transactions/verify-deposit', validator(ValidationSchema.verifyPay
  *       400:
  *         description: Insufficient balance or invalid recipient
  */
-router.post('/transactions/transfer', validator(ValidationSchema.makeInternalTransferSchema), Auth(), (req: Request, res: Response) =>
+router.post('/transfer', validator(ValidationSchema.makeInternalTransferSchema), Auth(), (req: Request, res: Response) =>
   transactionController.internalTransfer(req, res)
 );
 
@@ -141,7 +141,7 @@ router.post('/transactions/transfer', validator(ValidationSchema.makeInternalTra
  *       400:
  *         description: Invalid account details
  */
-router.post('/transactions/withdrawal', validator(ValidationSchema.makeWithdrawalByPaystack), Auth(), (req: Request, res: Response) =>
+router.post('/withdrawal', validator(ValidationSchema.makeWithdrawalByPaystack), Auth(), (req: Request, res: Response) =>
   transactionController.withdrawByPaystack(req, res)
 );
 
@@ -159,7 +159,7 @@ router.post('/transactions/withdrawal', validator(ValidationSchema.makeWithdrawa
  *       401:
  *         description: Unauthorized
  */
-router.get('/transactions/', Auth(), (req: Request, res: Response) => {
+router.get('/transactions', Auth(), (req: Request, res: Response) => {
   return transactionController.getAllUserTransactions(req, res);
 });
 
@@ -184,7 +184,7 @@ router.get('/transactions/', Auth(), (req: Request, res: Response) => {
  *       404:
  *         description: Transaction not found
  */
-router.get('/transaction/:id', Auth(), (req: Request, res: Response) => {
+router.get('/:id', Auth(), (req: Request, res: Response) => {
   return transactionController.getUserTransaction(req, res);
 });
 

@@ -15,7 +15,7 @@ const accountController = container.resolve(AccountController);
 
 /**
  * @swagger
- * /account/create-account:
+ * /accounts/create-account:
  *   post:
  *     summary: Create a new account
  *     tags: [Accounts]
@@ -41,7 +41,7 @@ const accountController = container.resolve(AccountController);
  *       400:
  *         description: Invalid request data
  */
-router.post('/account/create-account/', validator(ValidationSchema.createAccountSchema), Auth(), (req: Request, res: Response) => {
+router.post('/create-account', validator(ValidationSchema.createAccountSchema), Auth(), (req: Request, res: Response) => {
     return accountController.createAccount(req, res);
 });
 
@@ -59,13 +59,13 @@ router.post('/account/create-account/', validator(ValidationSchema.createAccount
  *       401:
  *         description: Unauthorized
  */
-router.get('/accounts', Auth(), (req: Request, res: Response) => {
+router.get('/', Auth(), (req: Request, res: Response) => {
     return accountController.getAllUserAccounts(req, res);
 });
 
 /**
  * @swagger
- * /account/{id}:
+ * /accounts/{id}:
  *   get:
  *     summary: Get account details by ID
  *     tags: [Accounts]
@@ -84,13 +84,13 @@ router.get('/accounts', Auth(), (req: Request, res: Response) => {
  *       404:
  *         description: Account not found
  */
-router.get('/account/:id', Auth(), (req: Request, res: Response) => {
+router.get('/:id', Auth(), (req: Request, res: Response) => {
     return accountController.getUserAccount(req, res);
 });
 
 /**
  * @swagger
- * /account/payee/list:
+ * /accounts/payee/list:
  *   get:
  *     summary: Get all payees 
  *     tags: [Accounts]
@@ -102,13 +102,13 @@ router.get('/account/:id', Auth(), (req: Request, res: Response) => {
  *       401:
  *         description: Unauthorized
  */
-router.get('/account/payee/list', Auth(), (req: Request, res: Response) => {
+router.get('/payee/list', Auth(), (req: Request, res: Response) => {
     return accountController.getAllUserPayee(req, res);
 });
 
 /**
  * @swagger
- * /account/payee/{id}:
+ * /accounts/payee/{id}:
  *   get:
  *     summary: Get payee details by ID
  *     tags: [Accounts]
@@ -127,13 +127,13 @@ router.get('/account/payee/list', Auth(), (req: Request, res: Response) => {
  *       404:
  *         description: Payee not found
  */
-router.get('/account/payee/:id', Auth(), (req: Request, res: Response) => {
+router.get('/payee/:id', Auth(), (req: Request, res: Response) => {
     return accountController.getUserPayee(req, res);
 });
 
 /**
  * @swagger
- * /account/loan-application:
+ * /accounts/loan-application:
  *   post:
  *     summary: Apply for a loan
  *     tags: [Accounts]
@@ -157,13 +157,13 @@ router.get('/account/payee/:id', Auth(), (req: Request, res: Response) => {
  *       400:
  *         description: Invalid request data
  */
-router.post('/account/loan-application', validator(ValidationSchema.loanApplication), Auth(), (req: Request, res: Response) => {
+router.post('/loan-application', validator(ValidationSchema.loanApplication), Auth(), (req: Request, res: Response) => {
     return accountController.applyLoan(req, res);
 });
 
 /**
  * @swagger
- * /account/loan/list:
+ * /accounts/loan/list:
  *   get:
  *     summary: Get all loan applications for the user
  *     tags: [Accounts]
@@ -175,7 +175,7 @@ router.post('/account/loan-application', validator(ValidationSchema.loanApplicat
  *       401:
  *         description: Unauthorized
  */
-router.get('/account/loan/list', Auth(), (req: Request, res: Response) => {
+router.get('/loan/list', Auth(), (req: Request, res: Response) => {
     return accountController.getAllUserLoan(req, res);
 });
 

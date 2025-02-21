@@ -32,7 +32,7 @@ const transactionController = container.resolve(TransactionController);
  *       401:
  *         description: Unauthorized
  */
-router.get('/admin/users', AdminAuth(), (req: Request, res: Response) => {
+router.get('/users', AdminAuth(), (req: Request, res: Response) => {
     return userController.getAllUsersByAdmin(req, res);
 });
 
@@ -57,7 +57,7 @@ router.get('/admin/users', AdminAuth(), (req: Request, res: Response) => {
  *       404:
  *         description: User not found
  */
-router.get('/admin/user/:id', AdminAuth(), (req: Request, res: Response) => {
+router.get('/user/:id', AdminAuth(), (req: Request, res: Response) => {
     return userController.getSingleUserById(req, res);
 });
 
@@ -89,7 +89,7 @@ router.get('/admin/user/:id', AdminAuth(), (req: Request, res: Response) => {
  *       400:
  *         description: Invalid request data
  */
-router.post('/admin/user/status', validator(ValidationSchema.setAccountStatusSchema), AdminAuth(), (req: Request, res: Response) => {
+router.post('/status', validator(ValidationSchema.setAccountStatusSchema), AdminAuth(), (req: Request, res: Response) => {
     return userController.setAccountStatus(req, res);
 });
 
@@ -107,7 +107,7 @@ router.post('/admin/user/status', validator(ValidationSchema.setAccountStatusSch
  *       401:
  *         description: Unauthorized
  */
-router.get('/admin/accounts', AdminAuth(), (req: Request, res: Response) => {
+router.get('/', AdminAuth(), (req: Request, res: Response) => {
     return accountController.getAllUserAccountsAdmin(req, res);
 });
 
@@ -132,7 +132,7 @@ router.get('/admin/accounts', AdminAuth(), (req: Request, res: Response) => {
  *       404:
  *         description: Account not found
  */
-router.get('/admin/account/:id', AdminAuth(), (req: Request, res: Response) => {
+router.get('/account/:id', AdminAuth(), (req: Request, res: Response) => {
     return accountController.getUserAccountAdmin(req, res);
 });
 
@@ -150,7 +150,7 @@ router.get('/admin/account/:id', AdminAuth(), (req: Request, res: Response) => {
  *       401:
  *         description: Unauthorized
  */
-router.get('/admin/transactions', AdminAuth(), (req: Request, res: Response) => {
+router.get('/transactions', AdminAuth(), (req: Request, res: Response) => {
     return transactionController.getAllUserTransactionsAdmin(req, res);
 });
 
@@ -168,7 +168,7 @@ router.get('/admin/transactions', AdminAuth(), (req: Request, res: Response) => 
  *       401:
  *         description: Unauthorized
  */
-router.get('/admin/loans', AdminAuth(), (req: Request, res: Response) => {
+router.get('/loans', AdminAuth(), (req: Request, res: Response) => {
     return accountController.getLoansAdmin(req, res);
 });
 
@@ -200,7 +200,7 @@ router.get('/admin/loans', AdminAuth(), (req: Request, res: Response) => {
  *       400:
  *         description: Invalid loan ID or status
  */
-router.post('/admin/loans/status', validator(AccountValidationSchema.approveOrDeclineLoanSchema), AdminAuth(), (req: Request, res: Response) => {
+router.post('/loans/status', validator(AccountValidationSchema.approveOrDeclineLoanSchema), AdminAuth(), (req: Request, res: Response) => {
     return accountController.approveOrDeclineLoanByAdmin(req, res);
 });
 

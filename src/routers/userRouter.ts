@@ -15,7 +15,7 @@ const userController = container.resolve(UserController);
 
 /**
  * @swagger
- * /auth/signup:
+ * /users/signup:
  *   post:
  *     summary: User signup
  *     tags: [Users]
@@ -44,13 +44,13 @@ const userController = container.resolve(UserController);
  *       400:
  *         description: Bad request (Validation error)
  */
-router.post('/auth/signup', validator(ValidationSchema.registerSchema), (req: Request, res: Response) => {
+router.post('/signup', validator(ValidationSchema.registerSchema), (req: Request, res: Response) => {
   return userController.register(req, res);
 });
    
 /**
  * @swagger
- * /auth/login:
+ * /users/login:
  *   post:
  *     summary: User login
  *     tags: [Users]
@@ -74,13 +74,13 @@ router.post('/auth/signup', validator(ValidationSchema.registerSchema), (req: Re
  *       401:
  *         description: Unauthorized - Incorrect credentials
  */
-router.post('/auth/login', validator(ValidationSchema.loginSchema), (req: Request, res: Response) => {
+router.post('/login', validator(ValidationSchema.loginSchema), (req: Request, res: Response) => {
   return userController.login(req, res);
 });
 
 /**
  * @swagger
- * /auth/forgot-password:
+ * /users/forgot-password:
  *   post:
  *     summary: Request a password reset email
  *     tags: [Users]
@@ -101,13 +101,13 @@ router.post('/auth/login', validator(ValidationSchema.loginSchema), (req: Reques
  *       400:
  *         description: Invalid email
  */
-router.post('/auth/forgot-password', validator(ValidationSchema.forgotPasswordSchema), (req: Request, res: Response) => {
+router.post('/forgot-password', validator(ValidationSchema.forgotPasswordSchema), (req: Request, res: Response) => {
   return userController.forgotPassword(req, res);
 });
 
 /**
  * @swagger
- * /auth/reset-password:
+ * /users/reset-password:
  *   post:
  *     summary: Reset user password
  *     tags: [Users]
@@ -132,13 +132,13 @@ router.post('/auth/forgot-password', validator(ValidationSchema.forgotPasswordSc
  *       400:
  *         description: Invalid token or weak password
  */
-router.post('/auth/reset-password', validator(ValidationSchema.resetPasswordSchema), (req: Request, res: Response) => {
+router.post('/reset-password', validator(ValidationSchema.resetPasswordSchema), (req: Request, res: Response) => {
   return userController.resetPassword(req, res);
 });
 
 /**
  * @swagger
- * /profile:
+ * /users/profile:
  *   get:
  *     summary: Get the authenticated user's profile
  *     tags: [Users]
