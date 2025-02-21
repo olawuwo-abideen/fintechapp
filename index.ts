@@ -14,7 +14,7 @@ import AdminRouter from "./src/routers/adminRouter";
 import compression from 'compression';
 import cookieParser from 'cookie-parser';
 import bodyParser from "body-parser";
-// import { swaggerDocs } from "./src/utils/swagger";
+
 
 import swaggerUI from "swagger-ui-express";
 import swaggerJsDoc from "swagger-jsdoc";
@@ -77,10 +77,10 @@ const options = {
       },
     ],
   },   
-
-  apis: [path.join(__dirname, "./routers/*.ts")],
+  // apis: ["./dist/routers/*.js"], 
+  // apis: [path.join(__dirname, "routers/*.js")],
   
-  // apis: ["./src/routers/*.ts"]
+  apis: ["./src/routers/*.ts"]
   // This is to call all the file
   // apis: ["src/**/*.ts"]
 };
@@ -88,14 +88,10 @@ const options = {
 const specs = swaggerJsDoc(options);
 // app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(specs));
 
-// // app.get('/', (req: Request, res: Response) => {
-// //   res.send(`Welcome to ${process.env.APPNAME}`);
-// // });
 
-
-// app.get("/", (req: Request, res: Response) => {
-//   res.redirect(301, "/api-docs/");
-// });
+app.get("/", (req: Request, res: Response) => {
+  res.redirect(301, "/api-docs/");
+});
 
 app.use(
   "/api-docs",
